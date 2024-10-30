@@ -61,6 +61,13 @@ PACKAGES SECTION TOTAL 10 PACKAGES
 ![image](https://github.com/user-attachments/assets/46e8b1ee-dbfd-4f8c-89ed-3193322a01c9)
 ![image](https://github.com/user-attachments/assets/19d1457e-51fa-45b3-a471-20b0bb4604a1)
 
+once click on explore package
+![image](https://github.com/user-attachments/assets/eb770292-0992-4db6-af72-305bf3c9a1b0)
+![image](https://github.com/user-attachments/assets/84dbe001-2d44-47fc-8754-6eca9c36a8b4)
+![image](https://github.com/user-attachments/assets/11b4b046-f176-448d-9224-d29eaf5fce89)
+once click on book now
+![image](https://github.com/user-attachments/assets/c1bfa664-c35b-4680-a9c6-36da458fc702)
+
 ABOUT US SECTION
 
 ![image](https://github.com/user-attachments/assets/b37cb79a-c7de-451c-8632-cc0fcde9ee62)
