@@ -19,7 +19,8 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/Siddhi124github/saffron-voyage.git
+git clone https://github.com/Siddhi124github/Tourism-Website-Maharashtra-Tourism.git
+
 cd saffron-voyage
 
 Set Up PHP Server: Ensure you have a local server environment (like XAMPP, WAMP, or MAMP) to run PHP scripts. Place the cloned folder in the server's root directory.
