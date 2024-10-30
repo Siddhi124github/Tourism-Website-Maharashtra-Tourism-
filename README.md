@@ -49,5 +49,36 @@ Creator
 This website is developed by Siddhi Naik, with a passion for promoting Maharashtra's rich culture and heritage.
 
 
+MAIN PAGE WITH CHANGING BG AFTER EACH 3 SEC
+![image](https://github.com/user-attachments/assets/84a2dd3a-3ee0-4e73-a486-6e1044c482a5) 
+![image](https://github.com/user-attachments/assets/9b7499b4-b75d-446a-9f52-a689e40e90f9)
 
-![image](https://github.com/user-attachments/assets/84a2dd3a-3ee0-4e73-a486-6e1044c482a5)
+
+SERVICES SECTION 
+![image](https://github.com/user-attachments/assets/73c6403a-123a-4cc7-8f8e-3cb5549902f1)
+
+PACKAGES SECTION TOTAL 10 PACKAGES
+![image](https://github.com/user-attachments/assets/46e8b1ee-dbfd-4f8c-89ed-3193322a01c9)
+![image](https://github.com/user-attachments/assets/19d1457e-51fa-45b3-a471-20b0bb4604a1)
+
+ABOUT US SECTION
+
+![image](https://github.com/user-attachments/assets/b37cb79a-c7de-451c-8632-cc0fcde9ee62)
+
+FEEDBACK SECTION
+![image](https://github.com/user-attachments/assets/4a1b39b4-4d64-46bd-b88b-26097d5699f3)
+![image](https://github.com/user-attachments/assets/596f0cf2-d540-4eaa-9b22-2acdcfc76c5b)
+
+CONTACT SECTION
+![image](https://github.com/user-attachments/assets/abe5be01-2aba-4096-8ce3-c46f63091602)
+
+MESSAGE SENT WILL BE DISPED ON ADMIN HOMEPAGE
+![image](https://github.com/user-attachments/assets/939efe92-ab71-4256-8692-056247384e3f)
+
+ADMIN LOGIN 
+![image](https://github.com/user-attachments/assets/85ff168d-889c-4bfa-b334-ed14769dc4ec)
+
+ADMIN HOMEPAGE / DASHBOARD
+![image](https://github.com/user-attachments/assets/7b951fe0-4098-40ea-b6c3-11dadb4ffd5e)
+MESSAGE SENT IN CONTACT SECTION AND LAST 10 USERS AND INFO 
+![image](https://github.com/user-attachments/assets/b9dc70dd-17a3-4bf1-9042-8914044388f9)
