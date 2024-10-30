@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai Darshan Package</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .back-button {
+            cursor: pointer;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        .images {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            border: 5px solid #343a40;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .images img {
+            width: 100%;
+            height: 400px; /* Set a uniform height */
+            object-fit: cover; /* Crop images to fit */
+            display: none;
+        }
+
+        .images img.active {
+            display: block;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        .description {
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #bookingModal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        #bookingForm {
+            background: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #bookingForm h2 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        #bookingForm label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #bookingForm input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #bookingForm button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #bookingForm button:hover {
+            background: #0056b3;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #totalCost {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i> Back
+    </div>
+    <h1>Mumbai Darshan Package</h1>
+    
+    <div class="images">
+        <img src="Screenshot 2024-09-26 173357.png" alt="Mumbai Image 1" class="active">
+        <img src="Screenshot 2024-09-26 173933.png" alt="Mumbai Image 2">
+        <img src="Screenshot 2024-09-26 174652.png" alt="Mumbai Image 3">
+        <img src="Screenshot 2024-09-26 175246.png" alt="Mumbai Image 4">
+        <div class="arrow left" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div class="arrow right" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    
+    <div class="description">
+        <h1>Discover Mumbai with Our Private Cab Tour</h1>
+        <p>Mumbai, the vibrant capital of Maharashtra, offers a rich tapestry of beaches, museums, gardens, temples, and mouth-watering cuisine. Our 1 Day Mumbai Darshan Tour allows you to focus on enjoying the city’s iconic attractions without transportation hassles.</p>
+        
+        <h2>Places to Visit:</h2>
+        <ol>
+            <li>Gateway of India</li>
+            <li>Elephanta Caves</li>
+            <li>Haji Ali Darga</li>
+            <li>Marine Drive</li>
+            <li>Chhatrapati Shivaji Terminus</li>
+            <li>Worli Sea Link</li>
+            <li>Siddhivinayak Temple</li>
+            <li>Kanheri Caves</li>
+        </ol>
+        
+        <p>Additional attractions include Juhu Beach, Chowpatty Beach, Mount Mary Church, and more!</p>
+        <h5>Price: ₹2000 per adult, ₹1000 per child</h5>
+        <button onclick="openBookingForm()">Book Now</button>
+    </div>
+
+    <!-- Modal for Booking Form -->
+    <div id="bookingModal">
+        <div id="bookingForm">
+            <span class="close" onclick="closeBookingForm()">&times;</span>
+            <h2>Booking Form</h2>
+            <form id="form" action="submit_booking.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10-digit phone number">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="adults">Number of Adults:</label>
+                <input type="number" id="adults" name="adults" min="1" required>
+                
+                <label for="children">Number of Children:</label>
+                <input type="number" id="children" name="children" min="0">
+                
+                <label for="date">Date of Visit:</label>
+                <input type="date" id="date" name="date" required>
+
+                <div id="totalCost"></div>
+                <button type="submit">Book Package</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.images img');
+
+        function changeImage(direction) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        function openBookingForm() {
+            document.getElementById('bookingModal').style.display = 'block';
+        }
+
+        function closeBookingForm() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.getElementById('form').reset(); // Reset form fields
+            document.getElementById('totalCost').innerText = ''; // Reset total cost
+        }
+
+        // Close modal when clicking outside of the form
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingForm();
+            }
+        }
+
+        // Calculate total cost based on input
+        document.getElementById('adults').addEventListener('input', calculateTotal);
+        document.getElementById('children').addEventListener('input', calculateTotal);
+
+        function calculateTotal() {
+            const adults = parseInt(document.getElementById('adults').value) || 0;
+            const children = parseInt(document.getElementById('children').value) || 0;
+            const totalCost = (adults * 2000) + (children * 1000);
+            document.getElementById('totalCost').innerText = `Total Cost: ₹${totalCost}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    
+    <title>Travel Website Design</title>
+
+    <link rel="stylesheet" href="style.css">
+<!-- link with Awesome version 6.4.0 which is lib for iacons and symbols -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+<style>
+        .highlight {
+            background-color: yellow; /* Highlight color */
+            transition: background-color 0.5s ease; /* Smooth transition */
+        }
+    </style>
+
+    </head>
+<body>
+    <!-- Header Start -->
+    <div class="header">      <!--  Classes are used in HTML to group elements that share the same style or behavior  -->
+
+        <nav>
+           <div class="logo">
+                <a href="index.html" class="logo-text">SV</a>
+            </div>           
+
+ <div class="content">
+                <ul class="links">
+<li><a href="admin-login.html">Admin Sign In</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>    <!-- anchor -->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+                      <form action="#" class="search-box" onsubmit="return handleSearch(event)">
+                <input type="text" id="search-input" placeholder="Search" required>
+                <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+            </form>     </nav>
+    </div>
+    <!-- Header End -->
+
+    <!-- Home Section Start -->
+    <section class="home" id="home">
+        <div class="background"></div>
+        <div class="main-text">
+            <h1> SaffronVoyages</h1>
+            <p class="tagline">Experience the Essence of Maharashtra</p>
+                    </div>
+    </section>
+    <!-- Home Section End -->
+
+    <script>
+    // Array of background image URLs
+    const backgrounds = [
+        
+"Screenshot 2024-09-26 173933.png","360_F_169134635_BtuUZImNHXOb5x2GZPQMVA4BMnEbPjiQ.jpg","1.jpg"
+    ];
+
+    let currentIndex = 0;
+    const backgroundElement = document.querySelector('.home');
+
+    function changeBackground() {
+        currentIndex = (currentIndex + 1) % backgrounds.length;
+        backgroundElement.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+    }
+
+    // Initialize with the first background
+    backgroundElement.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+
+    setInterval(changeBackground, 3000); // Change background every 3 seconds
+
+
+ 
+    </script>
+
+
+
+        <footer id="footer">
+    </footer>
+<script>
+        // JavaScript for the search functionality
+        function handleSearch(event) {
+            event.preventDefault(); // Prevent form submission                                           
+
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const sections = document.querySelectorAll('section'); // Select all sections
+            let found = false;
+
+            sections.forEach(section => {
+                if (section.innerText.toLowerCase().includes(searchTerm)) {
+                    // Scroll to the matched section
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    highlightSection(section);
+                    found = true; // Mark as found
+                }
+            });
+
+            if (!found) {
+                // If no section is found, you can optionally handle that case
+                alert(`No results found for "${searchTerm}".`);
+            }
+        }
+
+        // Highlight the section briefly
+        function highlightSection(section) {
+            section.classList.add('highlight');
+            setTimeout(() => {
+                section.classList.remove('highlight');
+            }, 2000); // Remove highlight after 2 seconds
+        }
+
+           </script>
+</body>
+</html>
+
+    <!-- Home Section End -->
+
+    <!-- Services Section Start -->
+    <section class="services" id="services">
+        <div class="heading">
+            <h3>Services</h3>
+        </div>
+            <div class="card-content">
+
+                <div class="row">
+    <i class="fas fa-globe-asia"></i>
+    <div class="card-body">
+        <h1>Cultural Tours</h1>
+        <p>Immerse yourself in Maharashtra's rich heritage. Join our guided tours to historic forts, vibrant festivals, and traditional markets that showcase the state's unique culture. Experience the essence of Maharashtra through its traditions and customs.</p>
+    </div>
+</div>
+<div class="row">
+    <i class="fas fa-plane"></i>
+    <div class="card-body">
+        <h1>Convenient Travel Packages</h1>
+        <p>Choose from a variety of travel packages that cater to all types of travelers. Enjoy organized itineraries that make exploring Maharashtra's diverse attractions seamless and enjoyable. Tailored options ensure a personalized adventure.</p>
+    </div>
+</div>
+<div class="row">
+    <i class="fas fa-hotel"></i>
+    <div class="card-body">
+        <h1>Quality Accommodation</h1>
+        <p>Stay in top-rated hotels and cozy guesthouses across Maharashtra. We offer a selection of comfortable accommodations that suit every budget, ensuring a restful experience. Enjoy amenities that enhance your stay.</p>
+    </div>
+</div>
+<div class="row">
+    <i class="fas fa-bullhorn"></i>
+    <div class="card-body">
+        <h1>Expert Travel Guidance</h1>
+        <p>Our experienced guides are here to provide you with insights and tips for a safe and enriching experience. From travel advice to local secrets, we've got you covered. Your adventure is our priority.</p>
+    </div>
+</div>
+
+            </div>
+
+       
+    </section>
+    <!-- Services Section End -->
+    <!-- Packages Section Start -->
+<section class="packages" id="packages">
+    <div class="main-txt">
+        <h1>Packages</h1>
+    </div>
+
+    <div class="card-content">
+        <div class="row">
+            <img src="Screenshot 2024-09-26 173357.png" alt="Mumbai Darshan" class="package-image" />
+            <div class="card-body">
+                <h3>Mumbai Darshan</h3>
+                <p>Explore the vibrant city of Mumbai.</p>
+                                <h5>Price: ₹2000</h5>
+                <button onclick="window.open('mumbai-darshan.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <img src="Screenshot 2024-09-26 184230.png" alt="Alibaug Trip" class="package-image" />
+            <div class="card-body">
+                <h3>Alibaug Trip</h3>
+                <p>A one day trip to Alibaug from Mumbai is a quick refresher amidst the monotonous city life.</p>
+                                <h5>Price: ₹3000</h5>
+                <button onclick="window.open('alibag.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 185837.png" alt="forts" class="package-image" />
+            <div class="card-body">
+                <h3>Shivaji Maharaj Forts Heritage Tour</h3>
+                <p>Explore the majestic forts of Maharashtra and delve into the rich legacy of Shivaji Maharaj 	</p>
+                                <h5>Price: ₹3500</h5>
+                <button onclick="window.open('fort package.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 190841.png" alt="kokan Trip" class="package-image" />
+            <div class="card-body">
+                <h3>Konkan Coastal Adventure</h3>
+                <p>Discover the Breathtaking Beauty and Vibrant Culture of Konkan!</p>
+                                <h5>Price: ₹5000</h5>
+                <button onclick="window.open('kokan pack.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 192259.png" alt="wildlife Trip" class="package-image" />
+            <div class="card-body">
+                <h3>Wildlife Safari in Tadoba</h3>
+                <p>Experience the Thrill of the Wild: Witness Nature’s Majesty Up Close!</p>
+                                <h5>Price: ₹6000</h5>
+                <button onclick="window.open('wild life.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 194512.png" alt="shirdi" class="package-image" />
+            <div class="card-body">
+                <h3> Shirdi Spiritual Journey</h3>
+                <p>Experience Divine Serenity at Sai Baba's Abode</p>
+                                <h5>Price: ₹4000</h5>
+                <button onclick="window.open('shirdi.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 195858.png" alt="shakti peeth" class="package-image" />
+            <div class="card-body">
+                <h3> Shakthi Peeth Pilgrimage</h3>
+                <p>Reconnect with the Divine at Sacred Shakthi Temples</p>
+                
+                <h5>Price: ₹4500</h5>
+                <button onclick="window.open('shakti peeth.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 201321.png" alt="ajanta" class="package-image" />
+            <div class="card-body">
+                <h3>  Ajanta and Ellora Heritage Tour</h3>
+                <p>Explore Ancient Marvels of Art and Architecture</p>
+                                <h5>Price: ₹7000</h5>
+                <button onclick="window.open('ajanta.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 201540.png" alt="sahydri" class="package-image" />
+            <div class="card-body">
+                <h3>   Sahyadri Adventure Trek</h3>
+                <p>Conquer the Heights and Embrace Nature</p>
+                                <h5>Price: ₹5500</h5>
+                <button onclick="window.open('sayadhri.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+<div class="row">
+            <img src="Screenshot 2024-09-26 202200.png" alt="pune" class="package-image" />
+            <div class="card-body">
+                <h3> Pune Cultural Exploration</h3>
+                <p>Dive Deep into Pune's Rich Heritage and Traditions</p>
+                
+                <h5>Price: ₹3500</h5>
+                <button onclick="window.open('pune.html', '_self')">Explore Package</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+<!-- Packages Section End -->
+
+
+
+
+<!-- About Section Start -->
+<s<!-- About Section Start -->
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="about-img.png" alt="About Saffron Voyage">
+    </div>
+    <div class="about-info">
+        <h1>About Us</h1>
+        <h2>How We Work at Saffron Voyage</h2>
+        <p>At <strong>Saffron Voyage</strong>, we have been dedicated to showcasing the beauty and diversity of Maharashtra since 2005. With nearly two decades of experience in the travel industry, our agency specializes in creating unforgettable travel experiences that highlight the rich cultural heritage, breathtaking landscapes, and vibrant cities of this incredible state.</p>
+
+        <p>Our dedicated team of travel experts is committed to designing personalized itineraries tailored to your unique interests. Whether you're seeking adventure in the Western Ghats, relaxation on the stunning beaches of Konkan, or cultural immersion in the historical sites of Mumbai and Pune, we ensure every aspect of your journey is seamless and enjoyable.</p>
+
+        <p>From handpicked accommodations to curated tours, we take care of all the details, allowing you to fully immerse yourself in the wonders of Maharashtra. Join us at <strong>Saffron Voyage</strong> and discover the heart of Maharashtra, creating unforgettable memories along the way!</p>
+
+        <p><strong>Experience Maharashtra like never before with Saffron Voyage—your trusted partner in travel since 2005!</strong></p>
+
+        <p>Let us guide you on an adventure that will inspire and rejuvenate your spirit, making every moment count.</p>
+
+            </div>
+</section>
+<!-- About Section End -->
+
+<!-- Reviews Section Start -->
+<section class="reviews" id="reviews">
+    <div class="heading">
+        <h3>What Our Customers Say</h3>
+    </div>
+    <div class="reviews-section">
+        <div class="card-content">
+            <!-- Existing reviews will be loaded here -->
+        </div>
+    </div>
+    <button id="openFeedbackModal">Leave Feedback</button>
+</section>
+<!-- Reviews Section End -->
+
+<!-- Feedback Modal -->
+<div id="feedbackModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Feedback</h2>
+        <form id="feedbackForm" onsubmit="submitFeedback(event)">
+            <input type="text" id="feedbackName" placeholder="Your Name" required>
+            <div class="rating" id="starRating">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+            <textarea id="feedbackText" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let selectedRating = 0;
+
+    // Open feedback modal on button click
+    document.getElementById("openFeedbackModal").onclick = function() {
+        document.getElementById("feedbackModal").style.display = "block";
+    };
+
+    // Close modal function
+    function closeModal() {
+        document.getElementById("feedbackModal").style.display = "none";
+    }
+
+    // Handle star rating selection
+    document.getElementById("starRating").addEventListener("click", function(event) {
+        if (event.target.dataset.value) {
+            selectedRating = event.target.dataset.value;
+            const stars = document.querySelectorAll("#starRating span");
+            stars.forEach(star => {
+                star.style.color = star.dataset.value <= selectedRating ? "gold" : "gray";
+            });
+        }
+    });
+
+    // Load existing reviews from localStorage
+    function loadReviews() {
+        const reviews = JSON.parse(localStorage.getItem('feedbackReviews')) || [];
+        const reviewsSection = document.querySelector(".reviews-section .card-content");
+        reviews.forEach(review => {
+            const newReview = document.createElement("div");
+            newReview.classList.add("row", "review");
+            newReview.innerHTML = `
+                <h5>${review.name}</h5>
+                <div class="rating">
+                    ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                </div>
+                <p>${review.text}</p>`;
+            reviewsSection.appendChild(newReview);
+        });
+    }
+
+    // Submit feedback
+    function submitFeedback(event) {
+        event.preventDefault();
+        const name = document.getElementById("feedbackName").value;
+        const feedbackText = document.getElementById("feedbackText").value;
+
+        const reviews = JSON.parse(localStorage.getItem('feedbackReviews')) || [];
+        reviews.push({ name, text: feedbackText, rating: selectedRating });
+        localStorage.setItem('feedbackReviews', JSON.stringify(reviews));
+
+        // Create a new review element
+        const reviewsSection = document.querySelector(".reviews-section .card-content");
+        const newReview = document.createElement("div");
+        newReview.classList.add("row", "review");
+        newReview.innerHTML = `
+            <h5>${name}</h5>
+            <div class="rating">
+                ${'★'.repeat(selectedRating)}${'☆'.repeat(5 - selectedRating)}
+            </div>
+            <p>${feedbackText}</p>`;
+        reviewsSection.appendChild(newReview);
+
+        // Hide the modal after submission
+        closeModal();
+        document.getElementById("feedbackForm").reset();
+        selectedRating = 0;
+        const stars = document.querySelectorAll("#starRating span");
+        stars.forEach(star => star.style.color = "gray"); // Reset star colors
+    }
+
+    window.onload = loadReviews; // Load reviews when the page loads
+</script>
+
+<style>
+    .rating {
+        cursor: pointer;
+    }
+    .rating span {
+        font-size: 24px;
+        color: gray;
+    }
+    .modal {
+        /* Add your modal styles here */
+        /* Example styles */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        width: 400px;
+    }
+</style>
+
+    <!-- Contact Section Start -->
+<?php
+session_start();
+?>
+
+<section class="contact" id="contact">
+    <div class="contact-text">
+        <h2>Get In <span>Touch</span></h2>
+        <p>If you have any questions or need assistance, feel free to reach out!</p>
+        <p>For urgent matters, please call us directly.</p>
+        <ul class="list">
+            <li><a href="tel:+919000000000">+91 90000 00000</a></li>
+            <li><a href="mailto:saffronvoyage@.com">saffronvoyage@.com</a></li>
+            <li>India, Maharashtra, Mumbai</li>
+        </ul>
+    </div>
+
+    <div class="contact-form">
+        <form action="testmysql.php" method="post">
+            <input type="text" name="message" placeholder="Enter your message" required>
+            <input type="submit" value="Send" class="submit">
+        </form>
+        <?php if (isset($_SESSION['success_message'])): ?>
+            <p><?php echo htmlspecialchars($_SESSION['success_message']); ?></p>
+            <?php unset($_SESSION['success_message']); // Clear the message after displaying ?>
+        <?php endif; ?>
+    </div>
+</section>
+</section>
+<!-- Contact Section End -->
+
+ <footer id="footer">
+    <div class="footer-content">
+        <div class="row" id="row1">
+            <a href="#" id="footer-logo">Travel Agency</a>
+            <p>Your one-stop solution for all travel needs. We offer the best packages and experiences tailored just for you.</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://pinterest.com" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <h3>Useful Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Packages</a></li>
+                
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+                <div class="row" id="row4">
+            <h3>Download Our App</h3>
+            <a href="https://play.google.com" target="_blank"><img src="app.png" alt="Download Our App" /></a>
+        </div>
+    </div>
+</footer>

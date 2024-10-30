@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Your CSS file -->
+    <title>Forts in Maharashtra Package</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .back-button {
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .images {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+        }
+        .images img {
+            width: 100%;
+            height: 500px; /* Set a uniform height */
+            object-fit: cover; /* Crop images to fit */
+            display: none;
+        }
+        .images img.active {
+            display: block;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 10px;
+        }
+        .arrow.right {
+            right: 10px;
+        }
+        .description {
+            padding: 20px;
+            background: #f1f1f1;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #bookingModal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        #bookingForm {
+            background: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 600px; /* Increased width */
+            max-height: 80%; /* Set maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        #bookingForm h2 {
+            text-align: center;
+        }
+        #bookingForm label {
+            display: block;
+            margin-top: 10px;
+        }
+        #bookingForm input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #bookingForm button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #bookingForm button:hover {
+            background: #0056b3;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #confirmationMessage {
+            display: none;
+            padding: 20px;
+            background: #dff0d8;
+            border: 1px solid #d6e9c6;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i> Back
+    </div>
+    <h1>Forts in Maharashtra Package - Discover Shivaji Maharaj's Legacy</h1>
+    
+    <div class="images">
+        <img src="Screenshot 2024-09-26 185515.png" alt="Fort Image 1" class="active">
+        <img src="Screenshot 2024-09-26 185641.png" alt="Fort Image 2">
+        <img src="Screenshot 2024-09-26 185751.png" alt="Fort Image 3">
+        <img src="Screenshot 2024-09-26 185837.png" alt="Fort Image 4">
+        <div class="arrow left" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div class="arrow right" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <div class="description">
+        <h1>Explore Maharashtra's Rich History</h1>
+        <p>Maharashtra is home to some of the most iconic forts in India, built during the reign of the legendary Maratha warrior king, Shivaji Maharaj. These forts not only served as strategic military bases but also as centers of culture and governance.</p>
+
+        <p>Our "Forts in Maharashtra" package offers an immersive journey through history. You'll visit famous forts like Raigad, where Shivaji was crowned, and Sinhagad, known for its valor in battles. Each fort tells a story of bravery, strategic prowess, and the rich heritage of Maharashtra.</p>
+
+        <p>This package is perfect for history enthusiasts, families, and anyone looking to learn more about India's heritage while enjoying the breathtaking landscapes that surround these historic sites.</p>
+
+        <h2>Forts to Visit in Maharashtra</h2>
+        <ol>
+            <li>Raigad Fort</li>
+            <li>Singhagad Fort</li>
+            <li>Pratapgad Fort</li>
+            <li>Ajinkyatara Fort</li>
+            <li>Vijaydurg Fort</li>
+            <li>Sindhudurg Fort</li>
+        </ol>
+        <p>Experience the stories and the beauty of Maharashtra's forts. Book your tour today for an unforgettable historical adventure!</p>
+        
+        <h5>Price: ₹3500 per adult, ₹1750 per child</h5>
+        <button onclick="openBookingForm()">Book Now</button>
+    </div>
+
+    <!-- Modal for Booking Form -->
+    <div id="bookingModal">
+        <div id="bookingForm">
+            <span class="close" onclick="closeBookingForm()">&times;</span>
+            <h2>Booking Form</h2>
+            <form id="form" action="submit_booking.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="adults">Number of Adults:</label>
+                <input type="number" id="adults" name="adults" min="1" required>
+                
+                <label for="children">Number of Children:</label>
+                <input type="number" id="children" name="children" min="0">
+                
+                <label for="date">Date of Visit:</label>
+                <input type="date" id="date" name="date" required>
+
+                <div id="totalCost" style="margin-top: 10px;"></div>
+                <button type="submit">Book Package</button>
+            </form>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.images img');
+
+        function changeImage(direction) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        function openBookingForm() {
+            document.getElementById('bookingModal').style.display = 'block';
+        }
+
+        function closeBookingForm() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.getElementById('confirmationMessage').style.display = 'none'; // Reset confirmation message
+            document.getElementById('form').reset(); // Reset form fields
+            document.getElementById('totalCost').innerText = ''; // Reset total cost
+        }
+
+        // Close modal when clicking outside of the form
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingForm();
+            }
+        }
+
+        // Calculate total cost based on input
+        document.getElementById('form').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const adults = parseInt(document.getElementById('adults').value) || 0;
+            const children = parseInt(document.getElementById('children').value) || 0;
+
+            const adultPrice = 3500;
+            const childPrice = 1750;
+            const totalCost = (adults * adultPrice) + (children * childPrice);
+
+            document.getElementById('totalCost').innerText = `Total Cost: ₹${totalCost}`;
+            document.getElementById('confirmationMessage').innerText = `Thank you for your booking, ${name}! You have booked for ${adults} adult(s) and ${children} child(ren). Total cost is ₹${totalCost}. Further details will be sent to you via WhatsApp or email.`;
+            document.getElementById('confirmationMessage').style.display = 'block';
+
+            // Here you can also implement AJAX to send the data to submit_booking.php
+            const formData = new FormData(document.getElementById('form'));
+            formData.append('package', 'Forts in Maharashtra Package'); // Append package name
+
+            fetch('submit_booking.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Booking submitted successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting booking:', error);
+            });
+        }
+    </script>
+</body>
+</html>
