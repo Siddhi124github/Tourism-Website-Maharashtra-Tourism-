@@ -48,3 +48,6 @@ The form submission action points to submit_booking.php, where backend logic can
 Creator
 This website is developed by Siddhi Naik, with a passion for promoting Maharashtra's rich culture and heritage.
 
+
+
+![image](https://github.com/user-attachments/assets/84a2dd3a-3ee0-4e73-a486-6e1044c482a5)
